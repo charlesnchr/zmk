@@ -151,7 +151,7 @@ static struct led_rgb hsb_to_rgb(struct zmk_led_hsb hsb) {
         break;
     }
 
-    struct led_rgb rgb = {r : r * 255, g : g * 255, b : b * 255};
+    struct led_rgb rgb = {r : r * 20, g : g * 20, b : b * 20};
 
     return rgb;
 }
@@ -479,9 +479,9 @@ static void zmk_rgb_underglow_effect_test() {
     state.animation_step += 20;
     if (state.animation_step > (HUE_MAX * 3)) {
 
-        rgb.r = 255;
-        rgb.g = 255;
-        rgb.b = 255;
+        rgb.r = 20;
+        rgb.g = 20;
+        rgb.b = 20;
         for (int i = 0; i < STRIP_NUM_PIXELS; i++)
             pixels[i] = rgb;
     }
@@ -492,18 +492,18 @@ static void zmk_rgb_underglow_effect_battery() {
     struct led_rgb rgb;
     if (soc > 80) {
         rgb.r = 0;
-        rgb.g = 255;
+        rgb.g = 20;
         rgb.b = 0;
     } else if (soc > 50 && soc < 80) {
-        rgb.r = 255;
-        rgb.g = 255;
+        rgb.r = 20;
+        rgb.g = 20;
         rgb.b = 0;
     } else if (soc > 20 && soc < 51) {
-        rgb.r = 255;
-        rgb.g = 140;
+        rgb.r = 20;
+        rgb.g = 10;
         rgb.b = 0;
     } else {
-        rgb.r = 255;
+        rgb.r = 20;
         rgb.g = 0;
         rgb.b = 0;
     }
